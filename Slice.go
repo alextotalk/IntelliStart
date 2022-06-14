@@ -9,7 +9,7 @@ func sliceTest() {
 	slice[1] = 2
 	slice[2] = 3
 	fmt.Println(slice)
-	handle(slice)
+	Handle(slice)
 	fmt.Println(slice)
 	//var slice = []int{1, 2, 3, 4, 5}
 	//fmt.Println(double(slice))
@@ -27,7 +27,7 @@ func sliceTest() {
 
 }
 
-func handle(slice []int) {
+func Handle(slice []int) {
 	//slice[1] = 77
 	//list := append(slice, 7777)
 	//fmt.Println(list)

@@ -13,6 +13,7 @@ import "fmt"
 
 func main() {
 	fmt.Println("Hello world! Bro1!")
+
 	slice := make([]int, 3, 3)
 	slice[0] = 1
 	slice[1] = 2
