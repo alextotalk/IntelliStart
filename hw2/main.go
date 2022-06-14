@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 // Одне яблуко коштує 5.99 грн. Ціна однієї груші - 7 грн.
@@ -36,13 +37,15 @@ func main() {
 	print("----------------------/2/----------------------\n\n")
 
 	print(" 2. Скільки груш ми можемо купити?\n")
-	resultInString = fmt.Sprintf("%.f", ourWallet/pricePear)
+	howMachPearsCanWeBuy := ourWallet / pricePear
+	resultInString = fmt.Sprintf("%.f", math.Floor(howMachPearsCanWeBuy))
 	println("-->Відповідь: Ми можемо купити", resultInString, " груші!\n")
 
 	print("----------------------/3/----------------------\n\n")
 
 	print(" 3. Скільки яблук ми можемо купити?\n")
-	resultInString = fmt.Sprintf("%.f", ourWallet/priceApple)
+	howMachAppleCanWeBuy := ourWallet / priceApple
+	resultInString = fmt.Sprintf("%.f", math.Floor(howMachAppleCanWeBuy))
 	println("-->Відповідь: Ми можемо купити", resultInString, " яблук!\n")
 
 	print("----------------------/4/----------------------\n\n")
