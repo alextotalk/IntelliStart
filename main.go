@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 //func one(n int) {
 //	fmt.Println(n)
@@ -14,12 +17,7 @@ import "fmt"
 func main() {
 	fmt.Println("Hello world! Bro1!")
 
-	slice := make([]int, 3, 3)
-	slice[0] = 1
-	slice[1] = 2
-	slice[2] = 3
-	fmt.Println(slice)
-	handle(slice)
-	fmt.Println(slice)
-	sliceTest()
+	//sliceTest()
+	var f6 = 13.
+	fmt.Println(reflect.TypeOf(f6))
 }
