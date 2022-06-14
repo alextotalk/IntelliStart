@@ -24,6 +24,8 @@ func main() {
 		pricePear  = 7.00
 		ourWallet  = 23.00
 	)
+	print("----------------------/1/----------------------\n\n")
+
 	print("\n1. Скільки грошей треба витратити, щоб купити 9 яблук та 8 груш?\n")
 	amountApple := 9.00
 	amountPear := 8.00
@@ -31,22 +33,22 @@ func main() {
 	resultInString := fmt.Sprintf("%.2f", result)
 	println("-->Відповідь: Щоб купити 9 яблук і 8 груш нам потрібно", resultInString, " грн. \n")
 
-	print("----------------------//----------------------\n\n")
+	print("----------------------/2/----------------------\n\n")
 
 	print(" 2. Скільки груш ми можемо купити?\n")
 	resultInString = fmt.Sprintf("%.f", ourWallet/pricePear)
 	println("-->Відповідь: Ми можемо купити", resultInString, " груші!\n")
 
-	print("----------------------//----------------------\n\n")
+	print("----------------------/3/----------------------\n\n")
 
 	print(" 3. Скільки яблук ми можемо купити?\n")
 	resultInString = fmt.Sprintf("%.f", ourWallet/priceApple)
 	println("-->Відповідь: Ми можемо купити", resultInString, " яблук!\n")
 
-	print("----------------------//----------------------\n\n")
+	print("----------------------/4/----------------------\n\n")
 
 	print(" 4. Чи ми можемо купити 2 груші та 2 яблука?\n")
-	priceTwoApplesAndTowPears := 2*pricePear + 2*priceApple
+	priceTwoApplesAndTowPears := 2*priceApple + 2*pricePear
 	if ourWallet <= priceTwoApplesAndTowPears {
 		resultInString = "не"
 	} else {
