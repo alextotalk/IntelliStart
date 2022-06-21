@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"strings"
 )
@@ -18,20 +19,19 @@ func main() {
 
 	ArrOfStringElements := strings.Split(input, " ")
 
-	//Якщо нада переводити в int32
-	//convertToValidJson := fmt.Sprintf("[%v]", strings.Join(ArrOfStringElements, ","))
-	//
-	//maxLengthOfArrNumber := len(input)/2 + 1
-	//arrOfNumber := make([]int32, maxLengthOfArrNumber, maxLengthOfArrNumber)
-	//if err := json.Unmarshal([]byte(convertToValidJson), &arrOfNumber); err != nil {
-	//	panic(fmt.Sprintf(
-	//		"json is not valid: %v", err))
-	//}
+	convertToValidJson := fmt.Sprintf("[%v]", strings.Join(ArrOfStringElements, ","))
 
-	max := ArrOfStringElements[0]
-	min := ArrOfStringElements[0]
+	maxLengthOfArrNumber := len(input)/2 + 1
+	arrOfNumber := make([]int32, maxLengthOfArrNumber, maxLengthOfArrNumber)
+	if err := json.Unmarshal([]byte(convertToValidJson), &arrOfNumber); err != nil {
+		panic(fmt.Sprintf(
+			"json is not valid: %v", err))
+	}
 
-	for _, value := range ArrOfStringElements {
+	max := arrOfNumber[0]
+	min := arrOfNumber[0]
+
+	for _, value := range arrOfNumber {
 		if max < value {
 			max = value
 		}
