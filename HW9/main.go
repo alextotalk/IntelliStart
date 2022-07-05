@@ -19,13 +19,6 @@ func (r *rectangle) increaseIn(num int) {
 	r.height *= num
 }
 
-//draw rectangle
-func drawRec(width, height int) {
-	row := strings.Repeat("O", width) + "\n"
-	column := strings.Repeat(row, height)
-	fmt.Print(column)
-}
-
 //draw vertical or horizontal rectangle vertical==true horizontal==false
 func (r rectangle) drawVariableRec(vertical bool) {
 	//arrange the width and height values so that the width is always less than the height
@@ -33,35 +26,42 @@ func (r rectangle) drawVariableRec(vertical bool) {
 		r.width, r.height = r.height, r.width
 	}
 	if vertical {
-		drawRec(r.width, r.height)
+		row := strings.Repeat("O", r.width) + "\n"
+		column := strings.Repeat(row, r.height)
+		fmt.Print(column)
 		return
 	}
-	drawRec(r.height, r.width)
+	row := strings.Repeat("O", r.height) + "\n"
+	column := strings.Repeat(row, r.width)
+	fmt.Print(column)
 	return
 }
 func (r rectangle) getArea() int {
-	area := r.width * r.height
-	return area
+	return r.width * r.height
 }
 func (r rectangle) isBigger(rec rectangle) bool {
-	return r.getArea() < rec.getArea()
+	return r.getArea() > rec.getArea()
 }
 func (r rectangle) getNumPossibleSquares(sq square) int {
 	forWidth := r.width / sq.len
 	forHeight := r.height / sq.len
 	res := 0
-	switch {
-	case forWidth > 0 && forHeight > 0:
+	if r.width == 1 || r.height == 1 && sq.len > 1 {
+		return res
+	}
+	if forWidth > 0 && forHeight > 0 {
 		res = forWidth * forHeight
 		return res
-	case forWidth == 0 && forHeight > 0:
+	}
+	if forWidth == 0 && forHeight > 0 {
 		res = forHeight
 		return res
-
-	case forWidth > 0 && forHeight == 0:
+	}
+	if forWidth > 0 && forHeight == 0 {
 		res = forWidth
 		return res
 	}
+
 	return res
 }
 func PrettyDivisor() {
@@ -103,5 +103,14 @@ func main() {
 
 	res2 := recSecond.getNumPossibleSquares(square)
 	fmt.Printf("The square is placed - %v times  \n", res2)
+
+	//rec := rectangle{
+	//	width:  1,
+	//	height: 2,
+	//}
+	//sq := square{len: 2}
+	//
+	//res2 := rec.getNumPossibleSquares(sq)
+	//fmt.Printf("The square is placed - %v times  \n", res2)
 
 }
