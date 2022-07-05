@@ -14,6 +14,9 @@ type Dog struct {
 func (d Dog) getFeedPerMonth() int {
 	return d.Weight * d.FeedPerKG
 }
+func (d Dog) getProperties() (string, int) {
+	return d.Name, d.Weight
+}
 
 type Cat struct {
 	Id        string `faker:"uuid_hyphenated"`
@@ -25,6 +28,9 @@ type Cat struct {
 func (c Cat) getFeedPerMonth() int {
 	return c.Weight * c.FeedPerKG
 }
+func (c Cat) getProperties() (string, int) {
+	return c.Name, c.Weight
+}
 
 type Cow struct {
 	Id        string `faker:"uuid_hyphenated"`
@@ -35,4 +41,7 @@ type Cow struct {
 
 func (cw Cow) getFeedPerMonth() int {
 	return cw.Weight * cw.FeedPerKG
+}
+func (cw Cow) getProperties() (string, int) {
+	return cw.Name, cw.Weight
 }
