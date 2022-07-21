@@ -20,4 +20,5 @@ func main() {
 	//sliceTest()
 	var f6 = 13.
 	fmt.Println(reflect.TypeOf(f6))
+
 }
